@@ -1,7 +1,7 @@
 import { cache } from "react";
 import { notFound, permanentRedirect } from "next/navigation";
-import { PrelecaoPage } from "../../../../features/prelecao/prelecao-page";
-import { fetchPrelecao } from "../../../../features/prelecao/prelecao-api";
+import { PrelecaoPage } from "../../../../features/match-details/match-details-page";
+import { fetchPrelecao } from "../../../../features/match-details/match-details-api";
 
 export const dynamic = "force-dynamic";
 

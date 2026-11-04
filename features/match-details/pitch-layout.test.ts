@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { lineupGroups, pitchPosition, visibleNumber } from "./pitch-layout";
-import type { PrelecaoLineupPlayer } from "./prelecao-api";
+import type { PrelecaoLineupPlayer } from "./match-details-api";
 
 describe("pitchPosition", () => {
   test("inverte profundidade: defesa embaixo e ataque em cima", () => {

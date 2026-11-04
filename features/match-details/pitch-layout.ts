@@ -1,4 +1,4 @@
-import type { PrelecaoLineupPlayer } from "./prelecao-api";
+import type { PrelecaoLineupPlayer } from "./match-details-api";
 
 export type PitchCoordinates = {
   x: number | null;

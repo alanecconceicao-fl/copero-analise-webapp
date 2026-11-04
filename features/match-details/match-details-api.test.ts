@@ -1,5 +1,5 @@
 import { afterEach, expect, test, vi } from "vitest";
-import { fetchPrelecao } from "./prelecao-api";
+import { fetchPrelecao } from "./match-details-api";
 
 vi.mock("../../shared/backend", () => ({
   backendGetJson: vi.fn(),

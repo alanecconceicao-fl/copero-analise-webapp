@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
-import { PrelecaoPage } from "./prelecao-page";
-import type { PublicPrelecao } from "./prelecao-api";
+import { PrelecaoPage } from "./match-details-page";
+import type { PublicPrelecao } from "./match-details-api";
 
 test("shows exactly the three editorial sections in order", () => {
   render(<PrelecaoPage prelecao={prelecao()} />);

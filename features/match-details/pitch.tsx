@@ -1,5 +1,5 @@
 import { lineupGroups, pitchPosition, visibleNumber } from "./pitch-layout";
-import type { PrelecaoLineupPlayer } from "./prelecao-api";
+import type { PrelecaoLineupPlayer } from "./match-details-api";
 
 type PitchProps = {
   players: PrelecaoLineupPlayer[];

@@ -3,7 +3,7 @@ import { CalendarIcon, PinIcon, StadiumIcon } from "../../shared/match-icons";
 import { paragraphs } from "./narration";
 import { lineupGroups } from "./pitch-layout";
 import { Pitch } from "./pitch";
-import type { PublicPrelecao, PrelecaoSection } from "./prelecao-api";
+import type { PublicPrelecao, PrelecaoSection } from "./match-details-api";
 
 type PrelecaoPageProps = {
   prelecao: PublicPrelecao;

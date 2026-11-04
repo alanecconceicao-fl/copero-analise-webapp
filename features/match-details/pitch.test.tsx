@@ -1,7 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { Pitch } from "./pitch";
-import type { PrelecaoLineupPlayer } from "./prelecao-api";
+import type { PrelecaoLineupPlayer } from "./match-details-api";
 
 test("pitch has image semantics and shows only players with positions", () => {
   render(<Pitch players={[player("Striker", 9, 90, 50), player("Unpositioned player", 4, null, 40)]} primaryColor="#5aa7ff" secondaryColor="#111827" opponent="Adversary FC" />);
