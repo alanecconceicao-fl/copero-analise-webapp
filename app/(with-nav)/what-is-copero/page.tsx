@@ -1,4 +1,4 @@
-import { OQueEPage } from "../../../features/o-que-e/o-que-e-page";
+import { OQueEPage } from "../../../features/what-is/o-que-e-page";
 
 export const metadata = {
   title: "About Copero",

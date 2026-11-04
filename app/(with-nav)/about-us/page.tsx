@@ -1,4 +1,4 @@
-import { SobreNosPage } from "../../../features/sobre-nos/sobre-nos-page";
+import { SobreNosPage } from "../../../features/about-us/about-us-page";
 
 export const metadata = {
   title: "About Us",

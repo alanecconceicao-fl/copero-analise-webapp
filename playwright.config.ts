@@ -30,7 +30,7 @@ export default defineConfig({
     ? undefined
     : [
         {
-          command: "STUB_BACKEND_PORT=3199 node features/prelecao/specs/stub-backend.mjs",
+          command: "STUB_BACKEND_PORT=3199 node features/match-details/specs/stub-backend.mjs",
           url: "http://127.0.0.1:3199/healthz",
           reuseExistingServer: true,
           timeout: 30_000,
