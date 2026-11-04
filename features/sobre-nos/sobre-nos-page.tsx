@@ -1,5 +1,3 @@
-// AC 6: what the Copero is + the people, each with a short intro. Copy DRAFT
-// (guia-voz; author's HITL) — the team roster especially awaits his words.
 import { AdSenseSlot } from "../../shared/adsense";
 import { Logo } from "../../shared/logo";
 import { SocialLinks } from "../../shared/social-links";
@@ -29,7 +27,7 @@ export async function SobreNosPage() {
         </p>
         <p>
           <strong>Copero Analysis</strong> began with a personal goal:
-          to follow Grêmio with the same tactical rigor as always, while
+          to follow Team PA with the same tactical rigor as always, while
           keeping the language of the stands. It grew into a project: serious analysis
           told by someone beside you, not above you.
         </p>

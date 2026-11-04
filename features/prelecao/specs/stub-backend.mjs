@@ -33,8 +33,8 @@ const samplePrelecao = {
     },
     {
       id: "watch-out",
-      title: "Watch out, Grêmio!",
-      body: "Adversary FC often build short and accelerate when they find their midfielder between the lines. If Grêmio press high without cover, a pass in behind the fullback becomes their shortcut.",
+      title: "Watch out, Team PA!",
+      body: "Adversary FC often build short and accelerate when they find their midfielder between the lines. If Team PA press high without cover, a pass in behind the fullback becomes their shortcut.",
       incidences: [
         "attacking transition: two goals after a high regain",
         "in possession: key passes per match above the recent sample average",
@@ -43,7 +43,7 @@ const samplePrelecao = {
     {
       id: "path",
       title: "The path to victory",
-      body: "The match may be decided by the second ball after a cross. Winning that rebound is what turns pressure into a clear chance.\n\nIf Player 10 receives facing forward, Grêmio can find a shot or a final pass before the visitors’ defensive block resets.",
+      body: "The match may be decided by the second ball after a cross. Winning that rebound is what turns pressure into a clear chance.\n\nIf Player 10 receives facing forward, Team PA can find a shot or a final pass before the visitors’ defensive block resets.",
       incidences: [
         "out of possession: allowed 12.4 shots per match",
         "set pieces: conceded six shots from 24 corners",

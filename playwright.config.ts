@@ -2,12 +2,12 @@ import { defineConfig } from "@playwright/test";
 import { defineBddConfig } from "playwright-bdd";
 
 // Gherkin specs live with the feature (feature-based org); generated tests
-// go to .bddgen (gitignored). Specs are pt-BR (living doc), steps English.
+// go to .bddgen (gitignored). Specs and steps are in English.
 const testDir = defineBddConfig({
   features: "features/**/specs/*.feature",
   steps: ["features/**/specs/steps.ts", "features/support/specs/bdd.ts"],
   outputDir: ".bddgen",
-  language: "pt",
+  language: "en",
 });
 
 // CI acceptance (gate 4, #13) points this at the real staging Service
@@ -22,7 +22,7 @@ export default defineConfig({
   // One worker keeps those scenarios deterministic; staging never mutates
   // the real flag and can retain Playwright's normal parallelism.
   workers: remoteBaseURL ? undefined : 1,
-  grepInvert: remoteBaseURL ? /@dados/ : undefined,
+  grepInvert: remoteBaseURL ? /@data/ : undefined,
   use: {
     baseURL: remoteBaseURL ?? "http://localhost:3100",
   },
@@ -37,7 +37,7 @@ export default defineConfig({
         },
         {
           command: "BACKEND_APP_URL=http://127.0.0.1:3199 npx next start -p 3100",
-          url: "http://localhost:3100/apenas-no-celular",
+          url: "http://localhost:3100/mobile-only",
           reuseExistingServer: true,
           timeout: 30_000,
         },

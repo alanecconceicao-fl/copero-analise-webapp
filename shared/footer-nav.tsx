@@ -1,7 +1,7 @@
 "use client";
 
 // Mobile-app style bottom navigation (AC 7): fixed bar, persists on scroll.
-// v0 shortcuts: início · sobre nós. Public URLs stay pt-BR.
+// v0 shortcuts: Home · About Us. Public routes use English slugs.
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -43,17 +43,17 @@ export function FooterNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="footer-nav" data-testid="footer-nav" aria-label="Navegação">
+    <nav className="footer-nav" data-testid="footer-nav" aria-label="Navigation">
       <Link href="/" className={pathname === "/" ? "active" : undefined}>
         <HomeIcon />
-        início
+        Home
       </Link>
       <Link
-        href="/sobre-nos"
-        className={pathname === "/sobre-nos" ? "active" : undefined}
+        href="/about-us"
+        className={pathname === "/about-us" ? "active" : undefined}
       >
         <PeopleIcon />
-        sobre nós
+        About Us
       </Link>
     </nav>
   );

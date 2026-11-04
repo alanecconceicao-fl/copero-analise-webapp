@@ -21,30 +21,30 @@ Given("the consent cookie is not present", async ({ world }) => {
 Given(
   "the fan opens the briefing {string} on a real mobile phone",
   async ({ browser, world }, slug: string) => {
-    await openDevice(world, browser, UA.phone, { width: 390, height: 844 }, true, `/prelecao/${slug}`);
+    await openDevice(world, browser, UA.phone, { width: 390, height: 844 }, true, `/match-preview/${slug}`);
   },
 );
 
 Given("a social crawler opens the briefing {string}", async ({ browser, world }, slug: string) => {
-  await openDevice(world, browser, UA.whatsapp, { width: 390, height: 844 }, false, `/prelecao/${slug}`);
+  await openDevice(world, browser, UA.whatsapp, { width: 390, height: 844 }, false, `/match-preview/${slug}`);
 });
 
 Given(
   "someone opens the briefing {string} on a computer",
   async ({ browser, world }, slug: string) => {
-    await openDevice(world, browser, UA.desktop, { width: 1440, height: 900 }, false, `/prelecao/${slug}`);
+    await openDevice(world, browser, UA.desktop, { width: 1440, height: 900 }, false, `/match-preview/${slug}`);
   },
 );
 
 Then("they see the briefing for {string}", async ({ world }, fixture: string) => {
   await expect(world.page.getByRole("heading", { level: 1 })).toHaveText(fixture);
-  await expect(world.page.getByText("Grêmio Arena")).toBeVisible();
+  await expect(world.page.getByText("Porto Alegre Stadium")).toBeVisible();
 });
 
 Then("the briefing contains exactly these three sections, in this order", async ({ world }) => {
   await expect(world.page.locator(".prelecao-lineup h2, .prelecao-section h2")).toHaveText([
     "Probable lineup",
-    "Watch out, Grêmio!",
+    "Watch out, Team PA!",
     "The path to victory",
   ]);
 });
@@ -57,22 +57,22 @@ Then("the analysis narrates the data without exposing statistics or JSON", async
 });
 
 Then("the vertical pitch shows the eleven starters with numbers, colors, and positions", async ({ world }) => {
-  const pitch = world.page.getByRole("img", { name: "Vertical pitch showing Bahia’s probable starters" });
+  const pitch = world.page.getByRole("img", { name: "Vertical pitch showing Adversary FC’s probable starters" });
   await expect(pitch).toBeVisible();
   await expect(pitch.locator(".pitch-player")).toHaveCount(11);
-  await expect(pitch.getByTestId("pitch-token-Everaldo")).toHaveText("9");
-  await expect(pitch.getByTestId("pitch-token-Everaldo")).toHaveCSS("background-color", "rgb(90, 167, 255)");
-  await expect(pitch.getByTestId("pitch-token-Everaldo")).toHaveCSS("color", "rgb(17, 24, 39)");
+  await expect(pitch.getByTestId("pitch-token-Striker")).toHaveText("9");
+  await expect(pitch.getByTestId("pitch-token-Striker")).toHaveCSS("background-color", "rgb(90, 167, 255)");
+  await expect(pitch.getByTestId("pitch-token-Striker")).toHaveCSS("color", "rgb(17, 24, 39)");
 
-  const goalkeeper = await pitch.getByTestId("pitch-player-Marcos Felipe").boundingBox();
-  const striker = await pitch.getByTestId("pitch-player-Everaldo").boundingBox();
+  const goalkeeper = await pitch.getByTestId("pitch-player-Goalkeeper").boundingBox();
+  const striker = await pitch.getByTestId("pitch-player-Striker").boundingBox();
   expect(goalkeeper).not.toBeNull();
   expect(striker).not.toBeNull();
   expect(goalkeeper!.y).toBeGreaterThan(striker!.y);
 });
 
 Then("they are redirected to the briefing {string}", async ({ world }, slug: string) => {
-  await expect(world.page).toHaveURL(new RegExp(`/prelecao/${slug}$`));
+  await expect(world.page).toHaveURL(new RegExp(`/match-preview/${slug}$`));
 });
 
 Then("they see that the analysis is unavailable", async ({ world }) => {
@@ -88,11 +88,11 @@ Then("the landing page does not promote the briefing", async ({ browser, world }
 Then("the social preview is for the briefing", async ({ world }) => {
   await expect(world.page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
-    "Match Preview: Grêmio x Bahia",
+    "Match Preview: Team PA x Adversary FC",
   );
   await expect(world.page.locator('meta[property="og:description"]')).toHaveAttribute(
     "content",
-    "Match analysis at Grêmio Arena.",
+    "Match analysis at Porto Alegre Stadium.",
   );
 });
 

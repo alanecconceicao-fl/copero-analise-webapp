@@ -1,5 +1,5 @@
 // Route group of the navigable app surface: these pages carry the app-style
-// footer nav. The desktop notice (/apenas-no-celular) lives OUTSIDE the group
+// footer nav. The desktop notice (/mobile-only) lives OUTSIDE the group
 // on purpose — a dead end gets no navigation.
 import type { ReactNode } from "react";
 import { FooterNav } from "../../shared/footer-nav";

@@ -5,23 +5,23 @@ import { FooterNav } from "./footer-nav";
 const { usePathname } = vi.hoisted(() => ({ usePathname: vi.fn() }));
 vi.mock("next/navigation", () => ({ usePathname }));
 
-test("marks início active on the home route", () => {
+test("marks Home active on the home route", () => {
   usePathname.mockReturnValue("/");
   render(<FooterNav />);
-  expect(screen.getByRole("link", { name: /início/i })).toHaveClass("active");
-  expect(screen.getByRole("link", { name: /sobre nós/i })).not.toHaveClass("active");
+  expect(screen.getByRole("link", { name: /home/i })).toHaveClass("active");
+  expect(screen.getByRole("link", { name: /about us/i })).not.toHaveClass("active");
 });
 
-test("marks sobre nós active on its route", () => {
-  usePathname.mockReturnValue("/sobre-nos");
+test("marks About Us active on its route", () => {
+  usePathname.mockReturnValue("/about-us");
   render(<FooterNav />);
-  expect(screen.getByRole("link", { name: /sobre nós/i })).toHaveClass("active");
-  expect(screen.getByRole("link", { name: /início/i })).not.toHaveClass("active");
+  expect(screen.getByRole("link", { name: /about us/i })).toHaveClass("active");
+  expect(screen.getByRole("link", { name: /home/i })).not.toHaveClass("active");
 });
 
 test("neither shortcut is active on an unrelated route", () => {
-  usePathname.mockReturnValue("/o-que-e");
+  usePathname.mockReturnValue("/what-is-copero");
   render(<FooterNav />);
-  expect(screen.getByRole("link", { name: /início/i })).not.toHaveClass("active");
-  expect(screen.getByRole("link", { name: /sobre nós/i })).not.toHaveClass("active");
+  expect(screen.getByRole("link", { name: /home/i })).not.toHaveClass("active");
+  expect(screen.getByRole("link", { name: /about us/i })).not.toHaveClass("active");
 });

@@ -104,7 +104,7 @@ Then(
   "the {string} item links to a page that explores the topic in depth",
   async ({ world }, _item: string) => {
     const firstItem = world.page.getByTestId("carousel-item").first();
-    await expect(firstItem.locator('a[href="/o-que-e"]')).toHaveCount(1);
+    await expect(firstItem.locator('a[href="/what-is-copero"]')).toHaveCount(1);
   },
 );
 
@@ -186,12 +186,12 @@ Then("the next match briefing callout appears", async ({ world }) => {
   const card = world.page.getByTestId("next-match-card");
   await expect(card).toBeVisible();
   await expect(card.getByText("Brazilian Championship")).toBeVisible();
-  await expect(card.getByTestId("next-match-home-team")).toHaveText("Grêmio");
-  await expect(card.getByTestId("next-match-away-team")).toHaveText("Bahia");
+  await expect(card.getByTestId("next-match-home-team")).toHaveText("Team PA");
+  await expect(card.getByTestId("next-match-away-team")).toHaveText("Adversary FC");
   await expect(card.getByText("Aug 8 · 9:30 PM · Single Round · Round 15")).toBeVisible();
   await expect(card.getByRole("link", { name: "Read the match preview" })).toHaveAttribute(
     "href",
-    "/prelecao/2026-brasileirao-fase-unica-15-bahia",
+    "/match-preview/2026-brazilian-championship-single-round-15-adversary-fc",
   );
 });
 
@@ -324,8 +324,8 @@ Then("the sitemap lists the public pages", async ({ world }) => {
   expect(response.status()).toBe(200);
   const body = await response.text();
   expect(body).toContain(`<loc>${SITE_URL}/</loc>`);
-  expect(body).toContain(`<loc>${SITE_URL}/o-que-e</loc>`);
-  expect(body).toContain(`<loc>${SITE_URL}/sobre-nos</loc>`);
+  expect(body).toContain(`<loc>${SITE_URL}/what-is-copero</loc>`);
+  expect(body).toContain(`<loc>${SITE_URL}/about-us</loc>`);
 });
 
 Then("the notice page requests not to be indexed", async ({ world }) => {

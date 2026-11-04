@@ -13,11 +13,11 @@ export function OQueEPage() {
       <div className="hero-card">
         <span className="kicker">About Copero</span>
         <h1>Copero Analysis</h1>
-        <p>Coming soon to your pocket: the Grêmio analysis you have been missing.</p>
+        <p>Coming soon to your pocket: the Team PA analysis you have been missing.</p>
       </div>
       <div className="page-section the-story">
         <p>
-          <strong>Copero Analysis</strong> is a Grêmio analysis app:
+          <strong>Copero Analysis</strong> is a Team PA analysis app:
           real data and tactical insight on the inside; on the outside, told
           in the easygoing language of the stands. No
           clickbait or pundit guesses.
@@ -33,7 +33,7 @@ export function OQueEPage() {
       </div>
       <div className="callout">
         <span className="kicker">The idea</span>
-        <h2>Every Grêmio match deserves analysis to match.</h2>
+        <h2>Every Team PA match deserves analysis to match.</h2>
         <p>And it should fit in a fan’s pocket.</p>
       </div>
       <div className="page-section the-features">

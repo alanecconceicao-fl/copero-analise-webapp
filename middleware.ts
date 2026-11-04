@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isRealMobilePhone, isSocialCrawler } from "./shared/device";
 
-const NOTICE_PATH = "/apenas-no-celular";
+const NOTICE_PATH = "/mobile-only";
 
 export function middleware(request: NextRequest) {
   const userAgent = request.headers.get("user-agent");

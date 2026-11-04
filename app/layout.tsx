@@ -19,7 +19,7 @@ const sans = Barlow({
 });
 
 const description =
-  "In-depth analysis of Grêmio matches, told in the language of the stands.";
+  "In-depth analysis of Team PA matches, told in the language of the stands.";
 
 // SEO (#38): metadataBase resolves every relative URL below (canonical, og);
 // the title template brands child pages; OG makes a shared link show

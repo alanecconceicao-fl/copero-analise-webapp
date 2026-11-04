@@ -1,6 +1,6 @@
 /* v0 styling — mobile-first, readable on 4G (AC "abre rápido e lê bem"). */
 
-/* Grêmio-inspired torcida palette + type — shared with the Lovable prototype. */
+/* Team PA-inspired torcida palette + type — shared with the Lovable prototype. */
 :root {
   --blue: oklch(0.68 0.16 235);
   --blue-dark: oklch(0.42 0.14 245);

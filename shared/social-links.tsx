@@ -11,14 +11,14 @@ function MailIcon() {
 }
 
 export function SocialLinks() {
-  return <nav className="social-links" aria-label="Redes sociais e contato">
+  return <nav className="social-links" aria-label="Social media and contact">
             <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">
             <InstagramIcon />
             </a>
             <a href="https://x.com/" target="_blank" rel="noreferrer" aria-label="X" title="X">
               <XIcon />
             </a>
-            <a href="mailto:dummyemail@example.com" aria-label="Contato por e-mail" title="Contato">
+            <a href="mailto:dummyemail@example.com" aria-label="Email contact" title="Contact">
               <MailIcon />
             </a>
           </nav>;

@@ -27,26 +27,26 @@ test.each([
   "Discordbot/2.0",
   "redditbot/1.0",
 ])("social crawler %s passes through for link preview", (userAgent) => {
-  const response = middleware(requestFor("/prelecao/2026-brasileirao-fase-unica-15-bahia", userAgent));
+  const response = middleware(requestFor("/match-preview/2026-brazilian-championship-single-round-15-adversary-fc", userAgent));
   expect(response.headers.get("x-middleware-rewrite")).toBeNull();
 });
 
 test("a desktop is rewritten to the notice page", () => {
   const response = middleware(requestFor("/", DESKTOP_UA));
-  expect(response.headers.get("x-middleware-rewrite")).toBe("https://copero.app/apenas-no-celular");
+  expect(response.headers.get("x-middleware-rewrite")).toBe("https://copero.app/mobile-only");
 });
 
 test("a desktop is rewritten from any path, not just the root", () => {
-  const response = middleware(requestFor("/o-que-e", DESKTOP_UA));
-  expect(response.headers.get("x-middleware-rewrite")).toBe("https://copero.app/apenas-no-celular");
+  const response = middleware(requestFor("/what-is-copero", DESKTOP_UA));
+  expect(response.headers.get("x-middleware-rewrite")).toBe("https://copero.app/mobile-only");
 });
 
 test("already on the notice page, a desktop is not rewritten again", () => {
-  const response = middleware(requestFor("/apenas-no-celular", DESKTOP_UA));
+  const response = middleware(requestFor("/mobile-only", DESKTOP_UA));
   expect(response.headers.get("x-middleware-rewrite")).toBeNull();
 });
 
 test("missing user agent is still rewritten to the notice page", () => {
   const response = middleware(requestFor("/", null));
-  expect(response.headers.get("x-middleware-rewrite")).toBe("https://copero.app/apenas-no-celular");
+  expect(response.headers.get("x-middleware-rewrite")).toBe("https://copero.app/mobile-only");
 });

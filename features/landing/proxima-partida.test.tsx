@@ -15,18 +15,18 @@ test("shows a home fixture and link when a match preview is published", () => {
   const card = screen.getByTestId("next-match-card");
   const scoreCard = card.querySelector(".score-card");
   expect(card).toHaveTextContent("Brazilian Championship");
-  expect(card).toHaveTextContent("Grêmio");
+  expect(card).toHaveTextContent("Team PA");
   expect(card).toHaveTextContent("Bahia");
   expect(scoreCard).toHaveClass("score-card--with-team-talk");
   expect(screen.getByTestId("next-match-home-team").previousElementSibling).toHaveAttribute("src", "/gremio.svg");
-  expect(screen.queryByRole("heading", { name: "Grêmio x Bahia" })).not.toBeInTheDocument();
+  expect(screen.queryByRole("heading", { name: "Team PA x Bahia" })).not.toBeInTheDocument();
   expect(screen.queryByText("Home")).not.toBeInTheDocument();
   expect(screen.queryByText("Away")).not.toBeInTheDocument();
   expect(screen.getByText("Aug 8 · 9:30 PM · Single Round · Round 15")).toBeInTheDocument();
   expect(screen.getByText("Match preview available")).toBeInTheDocument();
-  expect(screen.getByText("Grêmio Arena")).toBeInTheDocument();
+  expect(screen.getByText("Team PA Arena")).toBeInTheDocument();
   expect(screen.getByText("Porto Alegre, Brazil")).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: "Read the match preview" })).toHaveAttribute("href", "/prelecao/bahia");
+  expect(screen.getByRole("link", { name: "Read the match preview" })).toHaveAttribute("href", "/match-preview/bahia");
 });
 
 test("shows an away fixture and omits the link without a published match preview", () => {
@@ -34,11 +34,11 @@ test("shows an away fixture and omits the link without a published match preview
 
   const card = screen.getByTestId("next-match-card");
   const teams = Array.from(document.querySelectorAll(".team-row span:last-child")).map((node) => node.textContent);
-  expect(teams).toEqual(["Bahia", "Grêmio"]);
+  expect(teams).toEqual(["Bahia", "Team PA"]);
   expect(card.querySelector(".score-card")).not.toHaveClass("score-card--with-team-talk");
   expect(card.querySelector(".score-card-actions")).not.toBeInTheDocument();
   expect(screen.getByTestId("next-match-home-team").previousElementSibling).toHaveAttribute("src", "/gremio.svg");
-  expect(screen.queryByRole("heading", { name: "Bahia x Grêmio" })).not.toBeInTheDocument();
+  expect(screen.queryByRole("heading", { name: "Bahia x Team PA" })).not.toBeInTheDocument();
   expect(screen.queryByRole("link", { name: "Read the match preview" })).not.toBeInTheDocument();
 });
 
@@ -56,7 +56,7 @@ function partida(options: { home: boolean; teamTalkSlug?: string; enriched?: boo
     home: options.home,
     opponentCrestUrl: enriched ? "https://img.example/bahia.svg" : undefined,
     kickoffUtc: "2026-08-09T00:30:00Z",
-    stadium: "Grêmio Arena",
+    stadium: "Team PA Arena",
     stadiumCity: enriched ? "Porto Alegre" : undefined,
     stadiumCountry: enriched ? "Brazil" : undefined,
     teamTalkSlug: options.teamTalkSlug,

@@ -7,7 +7,7 @@ test("shows exactly the three editorial sections in order", () => {
   render(<PrelecaoPage prelecao={prelecao()} />);
 
   expect(Array.from(document.querySelectorAll(".prelecao-section h2")).map((heading) => heading.textContent)).toEqual([
-    "Watch out, Grêmio!",
+    "Watch out, Team PA!",
     "The path to victory",
   ]);
   expect(screen.getByRole("heading", { name: "Probable lineup" })).toBeInTheDocument();
@@ -33,17 +33,17 @@ test("header identifies the opponent, competition, venue, and kickoff time", () 
   render(<PrelecaoPage prelecao={prelecao()} />);
 
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Bahia");
-  expect(screen.queryByText("Grêmio x Bahia")).not.toBeInTheDocument();
+  expect(screen.queryByText("Team PA x Bahia")).not.toBeInTheDocument();
   expect(screen.getByText("Brazilian Championship · Single Round · Round 15")).toBeInTheDocument();
-  expect(screen.getByText("Grêmio Arena")).toBeInTheDocument();
+  expect(screen.getByText("Team PA Arena")).toBeInTheDocument();
   expect(screen.getByText("Saturday, August 8 at 9:30 PM")).toBeInTheDocument();
 });
 
-test("opponent remains the heading when Grêmio is away", () => {
+test("opponent remains the heading when Team PA is away", () => {
   render(<PrelecaoPage prelecao={prelecao({ home: false })} />);
 
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Bahia");
-  expect(screen.queryByText("Bahia x Grêmio")).not.toBeInTheDocument();
+  expect(screen.queryByText("Bahia x Team PA")).not.toBeInTheDocument();
 });
 
 test("header falls back when the venue city is missing", () => {
@@ -97,7 +97,7 @@ function prelecao(options: {
   const sections = [
     {
       id: "watch-out" as const,
-      title: "Watch out, Grêmio!",
+      title: "Watch out, Team PA!",
       body: options.body ?? "Second section.",
       incidences: options.withoutIncidences ? undefined : ["caution: high regains on the right"],
     },
@@ -114,7 +114,7 @@ function prelecao(options: {
     match: { season: "2026", competition: "Brazilian Championship", phase: "Single Round", round: "15", opponent: "Bahia" },
     opponentCrestUrl: enriched ? "https://img.example/bahia.svg" : undefined,
     kickoffUtc: "2026-08-09T00:30:00Z",
-    stadium: "Grêmio Arena",
+    stadium: "Team PA Arena",
     stadiumCity: enriched ? "Porto Alegre" : undefined,
     stadiumCountry: enriched ? "Brazil" : undefined,
     home: options.home ?? true,

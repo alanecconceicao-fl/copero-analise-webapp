@@ -2,7 +2,7 @@ import { expect, test } from "vitest";
 import { paragraphs } from "./narration";
 
 test("mantém corpo de um parágrafo como texto puro", () => {
-  expect(paragraphs("Grêmio pressiona pelo lado direito.")).toEqual(["Grêmio pressiona pelo lado direito."]);
+  expect(paragraphs("Team PA pressiona pelo lado direito.")).toEqual(["Team PA pressiona pelo lado direito."]);
 });
 
 test("quebra múltiplos parágrafos e ignora linhas vazias", () => {

@@ -13,11 +13,11 @@ export function ProximaPartidaCard({ partida }: ProximaPartidaCardProps) {
     return null;
   }
   const homeTeam = partida.home
-    ? { name: "Grêmio", crestUrl: GremioCrestUrl, side: "home" as const }
+    ? { name: "Team PA", crestUrl: GremioCrestUrl, side: "home" as const }
     : { name: partida.match.opponent, crestUrl: partida.opponentCrestUrl, side: "away" as const };
   const awayTeam = partida.home
     ? { name: partida.match.opponent, crestUrl: partida.opponentCrestUrl, side: "away" as const }
-    : { name: "Grêmio", crestUrl: GremioCrestUrl, side: "home" as const };
+    : { name: "Team PA", crestUrl: GremioCrestUrl, side: "home" as const };
 
   return (
     <section className="page-section next-match" data-testid="next-match-card">
@@ -39,7 +39,7 @@ export function ProximaPartidaCard({ partida }: ProximaPartidaCardProps) {
         </div>
         {partida.teamTalkSlug ? (
           <div className="score-card-actions">
-            <Link className="score-card-link score-card-link--primary" href={`/prelecao/${partida.teamTalkSlug}`}>Read the match preview</Link>
+            <Link className="score-card-link score-card-link--primary" href={`/match-preview/${partida.teamTalkSlug}`}>Read the match preview</Link>
           </div>
         ) : null}
       </div>

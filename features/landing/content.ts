@@ -15,7 +15,7 @@ export const carouselItems: CarouselItem[] = [
     kicker: "Start here",
     title: "About Copero Analysis",
     text: "Quality analysis with the kind of conversation you only hear in the stands.",
-    link: { href: "/o-que-e", label: "Learn more" },
+    link: { href: "/what-is-copero", label: "Learn more" },
   },
   {
     id: "prelecao",
@@ -32,7 +32,7 @@ export const carouselItems: CarouselItem[] = [
 ];
 
 export const sellingText =
-  "Get ready: your Grêmio analysis is about to change. " +
+  "Get ready: your Team PA analysis is about to change. " +
   "Match Preview before kickoff, matchday coverage as the action unfolds, and a lively post-match recap, " +
   "all in your pocket, told by someone right there with you in the " +
   "stands. Stay tuned: launch is coming soon.";
