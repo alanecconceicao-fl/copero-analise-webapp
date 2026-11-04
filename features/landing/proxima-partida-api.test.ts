@@ -17,10 +17,10 @@ test("busca a próxima partida pública", async () => {
   const { backendGetJson } = await import("../../shared/backend");
   const { featureFlags } = await import("../feature-flags/feature-flags");
   vi.mocked(featureFlags.isEnabled).mockResolvedValue(true);
-  vi.mocked(backendGetJson).mockResolvedValue({ match: { opponent: "Bahia" } });
+  vi.mocked(backendGetJson).mockResolvedValue({ match: { opponent: "Adversary FC" } });
 
   await expect(fetchProximaPartida()).resolves.toEqual({
-    match: { opponent: "Bahia" },
+    match: { opponent: "Adversary FC" },
   });
   expect(backendGetJson).toHaveBeenCalledWith(
     "/api/matches/next/public",

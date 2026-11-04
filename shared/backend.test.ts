@@ -47,7 +47,7 @@ test("propaga o override derivado do cookie somente como header interno", async 
   }));
   vi.stubGlobal("fetch", vi.fn(async () => Response.json({ ok: true })));
 
-  await backendGetJson("/api/matches/team-talk/public?slug=bahia");
+  await backendGetJson("/api/matches/team-talk/public?slug=Adversary FC");
 
   const init = vi.mocked(fetch).mock.calls[0][1];
   expect(new Headers(init?.headers).get("X-Copero-Feature-Flag-Override")).toBe(

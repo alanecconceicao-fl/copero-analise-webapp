@@ -33,7 +33,7 @@ export function ProximaPartidaCard({ partida }: ProximaPartidaCardProps) {
             <TeamRow {...awayTeam} />
           </div>
           <p className="score-card-fixture">
-            {shortKickoffDate(partida.kickoffUtc)} · {shortKickoffTime(partida.kickoffUtc)} · {partida.match.phase} · Round {partida.match.round}
+            {shortKickoffDate(partida.kickoffUtc) + ` · ` + shortKickoffTime(partida.kickoffUtc) + ` · ` + partida.match.phase + ` · Round ` + partida.match.round}
           </p>
           <MatchMeta partida={partida} />
         </div>

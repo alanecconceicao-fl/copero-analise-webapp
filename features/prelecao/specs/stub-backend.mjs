@@ -2,7 +2,7 @@ import http from "node:http";
 
 const port = Number(process.env.STUB_BACKEND_PORT ?? 3199);
 let prelecaoPublicaEnabled = true;
-const bahiaCrest = `data:image/svg+xml;utf8,${encodeURIComponent(`
+const crest = `data:image/svg+xml;utf8,${encodeURIComponent(`
 <svg viewBox="314.1999816894531 406.79998779296875 114.39999389648438 148.89996337890625" width="114.39999389648438" height="148.89996337890625" xmlns="http://www.w3.org/2000/svg"><path d="M403.7,416.3c0-1.2,0.1-2.3,0.3-3.4l-32.7-6.1l-32.7,6.1c0.2,1.1,0.3,2.2,0.3,3.4c0,13.7-11.1,24.7-24.7,24.8&#10;&#9;&#9;c0,2.8,0,5.5,0,8.3c0,80.2,57.2,106.3,57.2,106.3s57.2-26.1,57.2-106.3c0-2.7,0-5.5,0-8.3C414.8,441,403.7,429.9,403.7,416.3z&#10;&#9;&#9; M419.2,449.3c0,30.6-8.7,56.4-25.8,76.5c-8.6,10.1-17.3,16.3-22.2,19.2V416.2l23.5,4.4c1.7,13.6,11.5,24.7,24.4,28.4V449.3z" transform="matrix(1, 0, 0, 1, 0, 0)" style="fill: rgb(204, 204, 204); opacity: 1;"/></svg>
 `)}`;
 const samplePrelecao = {
@@ -18,7 +18,7 @@ const samplePrelecao = {
   stadium: "Porto Alegre Stadium",
   stadiumCity: "Porto Alegre",
   stadiumCountry: "Brazil",
-  opponentCrestUrl: bahiaCrest,
+  opponentCrestUrl: crest,
   home: true,
   deliveredAt: "2026-08-08T12:00:00Z",
   sections: [

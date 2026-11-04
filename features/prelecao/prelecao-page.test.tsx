@@ -32,8 +32,8 @@ test("narrative splits paragraphs without injecting HTML", () => {
 test("header identifies the opponent, competition, venue, and kickoff time", () => {
   render(<PrelecaoPage prelecao={prelecao()} />);
 
-  expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Bahia");
-  expect(screen.queryByText("Team PA x Bahia")).not.toBeInTheDocument();
+  expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Adversary FC");
+  expect(screen.queryByText("Team PA x Adversary FC")).not.toBeInTheDocument();
   expect(screen.getByText("Brazilian Championship · Single Round · Round 15")).toBeInTheDocument();
   expect(screen.getByText("Team PA Arena")).toBeInTheDocument();
   expect(screen.getByText("Saturday, August 8 at 9:30 PM")).toBeInTheDocument();
@@ -42,8 +42,8 @@ test("header identifies the opponent, competition, venue, and kickoff time", () 
 test("opponent remains the heading when Team PA is away", () => {
   render(<PrelecaoPage prelecao={prelecao({ home: false })} />);
 
-  expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Bahia");
-  expect(screen.queryByText("Bahia x Team PA")).not.toBeInTheDocument();
+  expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Adversary FC");
+  expect(screen.queryByText("Adversary FC x Team PA")).not.toBeInTheDocument();
 });
 
 test("header falls back when the venue city is missing", () => {
@@ -55,7 +55,7 @@ test("header falls back when the venue city is missing", () => {
 test("pitch represents the eleven starters", () => {
   render(<PrelecaoPage prelecao={prelecao()} />);
 
-  const pitch = screen.getByRole("img", { name: "Vertical pitch showing Bahia’s probable starters" });
+  const pitch = screen.getByRole("img", { name: "Vertical pitch showing Adversary FC’s probable starters" });
   expect(pitch.querySelectorAll(".pitch-player")).toHaveLength(11);
   expect(screen.queryByRole("list", { name: "Probable starters" })).not.toBeInTheDocument();
 });
@@ -110,9 +110,9 @@ function prelecao(options: {
   ];
 
   return {
-    slug: "2026-brasileirao-fase-unica-15-bahia",
-    match: { season: "2026", competition: "Brazilian Championship", phase: "Single Round", round: "15", opponent: "Bahia" },
-    opponentCrestUrl: enriched ? "https://img.example/bahia.svg" : undefined,
+    slug: "2026-brasileirao-fase-unica-15-Adversary FC",
+    match: { season: "2026", competition: "Brazilian Championship", phase: "Single Round", round: "15", opponent: "Adversary FC" },
+    opponentCrestUrl: enriched ? "https://img.example/Adversary FC.svg" : undefined,
     kickoffUtc: "2026-08-09T00:30:00Z",
     stadium: "Team PA Arena",
     stadiumCity: enriched ? "Porto Alegre" : undefined,

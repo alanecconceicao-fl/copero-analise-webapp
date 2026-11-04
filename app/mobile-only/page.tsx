@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function MobileOnlyNoticePage() {
   return (
-    <main className="page notice-page" data-testid="apenas-no-mobile">
+    <main className="page notice-page" data-testid="mobile-only">
       <header className="page-header page-header--centered">
         <Logo size="md" />
       </header>

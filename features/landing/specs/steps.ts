@@ -72,7 +72,7 @@ Then("they continue to see the landing page normally", async ({ world }) => {
 Then(
   "the page says desktop access is not allowed",
   async ({ world }) => {
-    await expect(world.page.getByTestId("apenas-no-celular")).toBeVisible();
+    await expect(world.page.getByTestId("mobile-only")).toBeVisible();
     await expect(world.page.getByText("desktop access is not allowed")).toBeVisible();
   },
 );
@@ -188,7 +188,7 @@ Then("the next match briefing callout appears", async ({ world }) => {
   await expect(card.getByText("Brazilian Championship")).toBeVisible();
   await expect(card.getByTestId("next-match-home-team")).toHaveText("Team PA");
   await expect(card.getByTestId("next-match-away-team")).toHaveText("Adversary FC");
-  await expect(card.getByText("Aug 8 · 9:30 PM · Single Round · Round 15")).toBeVisible();
+  await expect(card.getByText("Aug 8 · 09:30 PM · Single Round · Round 15")).toBeVisible();
   await expect(card.getByRole("link", { name: "Read the match preview" })).toHaveAttribute(
     "href",
     "/match-preview/2026-brazilian-championship-single-round-15-adversary-fc",
