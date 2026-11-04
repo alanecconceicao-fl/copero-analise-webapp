@@ -1,0 +1,14 @@
+[
+  {
+    "initials": "PO",
+    "name": "Person One",
+    "role": "Analista Técnico",
+    "bio": "Antes de comentar jogo, viveu o jogo: foi treinador, auxiliar técnico e analista de desempenho nas categorias de base de clubes do RS. Depois, trabalhou provendo apps e ferramentas para CONMEBOL e CONCACAF, em competições como Copa América, Libertadores, Concachampions e etc, seleções como Equador, Colombia e Argentina, e veículos como ESPN, FOX Sports e TyC Sports."
+  },
+  {
+    "initials": "PT",
+    "name": "Person Two",
+    "role": "Voz da Torcida",
+    "bio": "Vive o estádio de verdade: não perde jogo, dentro ou fora de casa. Passou pelo movimento organizado da torcida como músico durante o jogo. É sócio da Grêmio Stickers e traz pro Copero o que a análise sozinha não dá: a voz passional de quem tá sempre junto."
+  }
+]

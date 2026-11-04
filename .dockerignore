@@ -1,0 +1,10 @@
+node_modules
+.next
+.bddgen
+test-results
+playwright-report
+features/**/specs
+*.test.ts
+*.test.tsx
+Dockerfile
+.dockerignore
