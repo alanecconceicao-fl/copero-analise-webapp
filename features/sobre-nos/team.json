@@ -2,13 +2,13 @@
   {
     "initials": "PO",
     "name": "Person One",
-    "role": "Analista Técnico",
-    "bio": "Antes de comentar jogo, viveu o jogo: foi treinador, auxiliar técnico e analista de desempenho nas categorias de base de clubes do RS. Depois, trabalhou provendo apps e ferramentas para CONMEBOL e CONCACAF, em competições como Copa América, Libertadores, Concachampions e etc, seleções como Equador, Colombia e Argentina, e veículos como ESPN, FOX Sports e TyC Sports."
+    "role": "Technical Analyst",
+    "bio": "He lived the game before analyzing it: he coached, served as an assistant, and worked as a performance analyst for youth teams at clubs in Rio Grande do Sul. He later built apps and tools for CONMEBOL and CONCACAF, covering competitions such as the Copa América, Libertadores, and Concacaf Champions Cup; national teams including Ecuador, Colombia, and Argentina; and media outlets such as ESPN, FOX Sports, and TyC Sports."
   },
   {
     "initials": "PT",
     "name": "Person Two",
-    "role": "Voz da Torcida",
-    "bio": "Vive o estádio de verdade: não perde jogo, dentro ou fora de casa. Passou pelo movimento organizado da torcida como músico durante o jogo. É sócio da Grêmio Stickers e traz pro Copero o que a análise sozinha não dá: a voz passional de quem tá sempre junto."
+    "role": "Fan Representative",
+    "bio": "He is a true stadium regular and never misses a match, home or away. He was part of the organized supporters’ movement as a matchday musician. A member of Grêmio Stickers, he brings Copero what analysis alone cannot: the passionate voice of someone who is always there."
   }
 ]

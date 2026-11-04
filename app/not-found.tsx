@@ -1,10 +1,10 @@
 export default function NotFound() {
   return (
     <main className="page notice-page">
-      <span className="kicker">Nada por aqui</span>
-      <h1>Página não encontrada</h1>
+      <span className="kicker">Nothing here</span>
+      <h1>Page not found</h1>
       <div className="stripe-divider" />
-      <p>Essa análise ainda não está disponível.</p>
+      <p>This analysis is not available yet.</p>
     </main>
   );
 }

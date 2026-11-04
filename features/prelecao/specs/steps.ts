@@ -38,26 +38,26 @@ Given(
 
 Then("they see the briefing for {string}", async ({ world }, fixture: string) => {
   await expect(world.page.getByRole("heading", { level: 1 })).toHaveText(fixture);
-  await expect(world.page.getByText("Arena do Grêmio")).toBeVisible();
+  await expect(world.page.getByText("Grêmio Arena")).toBeVisible();
 });
 
 Then("the briefing contains exactly these three sections, in this order", async ({ world }) => {
   await expect(world.page.locator(".prelecao-lineup h2, .prelecao-section h2")).toHaveText([
-    "Provável escalação",
-    "Abre o olho, Grêmio!",
-    "O caminho das pedras",
+    "Probable lineup",
+    "Watch out, Grêmio!",
+    "The path to victory",
   ]);
 });
 
 Then("the analysis narrates the data without exposing statistics or JSON", async ({ world }) => {
-  await expect(world.page.getByText(/costuma sair curto e acelerar/)).toBeVisible();
-  await expect(world.page.getByText(/transição ofensiva: dois gols/)).toBeHidden();
+  await expect(world.page.getByText(/often build short and accelerate/)).toBeVisible();
+  await expect(world.page.getByText(/attacking transition: two goals/)).toBeHidden();
   await expect(world.page.getByText(/schemaVersion|sourceUses|previousMatches|\"sections\"/)).toHaveCount(0);
-  await expect(world.page.getByRole("heading", { name: /estatísticas/i })).toHaveCount(0);
+  await expect(world.page.getByRole("heading", { name: /statistics/i })).toHaveCount(0);
 });
 
 Then("the vertical pitch shows the eleven starters with numbers, colors, and positions", async ({ world }) => {
-  const pitch = world.page.getByRole("img", { name: "Campo vertical com titulares prováveis do Bahia" });
+  const pitch = world.page.getByRole("img", { name: "Vertical pitch showing Bahia’s probable starters" });
   await expect(pitch).toBeVisible();
   await expect(pitch.locator(".pitch-player")).toHaveCount(11);
   await expect(pitch.getByTestId("pitch-token-Everaldo")).toHaveText("9");
@@ -76,7 +76,7 @@ Then("they are redirected to the briefing {string}", async ({ world }, slug: str
 });
 
 Then("they see that the analysis is unavailable", async ({ world }) => {
-  await expect(world.page.getByRole("heading", { name: "Página não encontrada" })).toBeVisible();
+  await expect(world.page.getByRole("heading", { name: "Page not found" })).toBeVisible();
 });
 
 Then("the landing page does not promote the briefing", async ({ browser, world }) => {
@@ -88,11 +88,11 @@ Then("the landing page does not promote the briefing", async ({ browser, world }
 Then("the social preview is for the briefing", async ({ world }) => {
   await expect(world.page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
-    "Preleção: Grêmio x Bahia",
+    "Match Preview: Grêmio x Bahia",
   );
   await expect(world.page.locator('meta[property="og:description"]')).toHaveAttribute(
     "content",
-    "Análise do jogo no Arena do Grêmio.",
+    "Match analysis at Grêmio Arena.",
   );
 });
 

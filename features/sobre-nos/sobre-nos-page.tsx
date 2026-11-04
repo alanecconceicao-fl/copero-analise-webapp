@@ -16,28 +16,28 @@ export async function SobreNosPage() {
       <div className="stripe-divider" />
       <div className="page-section the-project">
         <div>
-          <span className="kicker">O projeto</span>
+          <span className="kicker">The project</span>
           <h2>
-            Análise de torcedor, <span className="accent">pra torcedor</span>.
+            Fan-led analysis, <span className="accent">for fans</span>.
           </h2>
         </div>
         <p>
-          A gente cansou de dois extremos: ou é nota rasa de aplicativo de
-          placar, ou é mesa-redonda cheia de termo técnico que só fala pra
-          quem já entende. Faltava profundidade de verdade, contada sem
-          soar de cima pra baixo.
+          We were tired of two extremes: shallow notes from a scores app,
+          or pundit panels full of jargon that only speak to people
+          who already know the game. We wanted real depth, explained without
+          talking down to anyone.
         </p>
         <p>
-          O <strong>Copero Análise</strong> nasceu de uma vontade pessoal:
-          acompanhar o Grêmio com a mesma seriedade tática de
-          sempre, sem perder a língua da arquibancada. Virou projeto: análise
-          séria, contada por quem tá do teu lado, não de cima.
+          <strong>Copero Analysis</strong> began with a personal goal:
+          to follow Grêmio with the same tactical rigor as always, while
+          keeping the language of the stands. It grew into a project: serious analysis
+          told by someone beside you, not above you.
         </p>
       </div>
       <div className="page-section the-team">
         <div>
-          <span className="kicker">O time</span>
-          <h2>Quem tá no projeto</h2>
+          <span className="kicker">The team</span>
+          <h2>Meet the team</h2>
         </div>
         <ul className="team-list" data-testid="pessoas">
           {team.map((person) => (
@@ -55,10 +55,10 @@ export async function SobreNosPage() {
       <AdSenseSlot />
       <section className="page-section contact-section" aria-labelledby="contato-heading">
         <div>
-          <span className="kicker">Fala com a gente</span>
-          <h2 id="contato-heading">Copero nas redes</h2>
+          <span className="kicker">Get in touch</span>
+          <h2 id="contato-heading">Copero on social media</h2>
         </div>
-        <p>Segue o Copero e acompanha as próximas leituras do jogo.</p>
+        <p>Follow Copero for more match analysis.</p>
         <SocialLinks />
       </section>
     </main>

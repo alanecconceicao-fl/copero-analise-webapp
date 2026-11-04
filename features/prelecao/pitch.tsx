@@ -12,7 +12,7 @@ export function Pitch({ players, primaryColor, secondaryColor, opponent }: Pitch
   const groups = lineupGroups(players);
 
   return (
-    <div className="pitch" role="img" aria-label={`Campo vertical com titulares prováveis do ${opponent}`}>
+    <div className="pitch" role="img" aria-label={`Vertical pitch showing ${opponent}’s probable starters`}>
       <svg className="pitch-lines" viewBox="0 0 68 105" aria-hidden="true" focusable="false">
         <rect x="1" y="1" width="66" height="103" rx="1" />
         <line x1="1" y1="52.5" x2="67" y2="52.5" />

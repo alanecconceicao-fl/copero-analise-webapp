@@ -22,8 +22,8 @@ export function ProximaPartidaCard({ partida }: ProximaPartidaCardProps) {
   return (
     <section className="page-section next-match" data-testid="next-match-card">
       <div className="next-match-head">
-        <span className="kicker">Próximo jogo</span>
-        {partida.teamTalkSlug ? <span className="next-match-tag">Preleção no ar</span> : null}
+        <span className="kicker">Next match</span>
+        {partida.teamTalkSlug ? <span className="next-match-tag">Match preview available</span> : null}
       </div>
       <div className={`score-card${partida.teamTalkSlug ? " score-card--with-team-talk" : ""}`}>
         <div className="score-card-content">
@@ -33,13 +33,13 @@ export function ProximaPartidaCard({ partida }: ProximaPartidaCardProps) {
             <TeamRow {...awayTeam} />
           </div>
           <p className="score-card-fixture">
-            {shortKickoffDate(partida.kickoffUtc)} · {shortKickoffTime(partida.kickoffUtc)} · {partida.match.phase} · Rodada {partida.match.round}
+            {shortKickoffDate(partida.kickoffUtc)} · {shortKickoffTime(partida.kickoffUtc)} · {partida.match.phase} · Round {partida.match.round}
           </p>
           <MatchMeta partida={partida} />
         </div>
         {partida.teamTalkSlug ? (
           <div className="score-card-actions">
-            <Link className="score-card-link score-card-link--primary" href={`/prelecao/${partida.teamTalkSlug}`}>Ler a Preleção</Link>
+            <Link className="score-card-link score-card-link--primary" href={`/prelecao/${partida.teamTalkSlug}`}>Read the match preview</Link>
           </div>
         ) : null}
       </div>
@@ -83,18 +83,18 @@ const SaoPauloTimeZone = "America/Sao_Paulo";
 
 function shortKickoffDate(kickoffUTC: string): string {
   const date = new Date(kickoffUTC);
-  return new Intl.DateTimeFormat("pt-BR", {
-    day: "2-digit",
-    month: "2-digit",
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
     timeZone: SaoPauloTimeZone,
   }).format(date);
 }
 
 function shortKickoffTime(kickoffUTC: string): string {
-  return new Intl.DateTimeFormat("pt-BR", {
+  return new Intl.DateTimeFormat("en-US", {
     hour: "2-digit",
     minute: "2-digit",
-    hour12: false,
+    hour12: true,
     timeZone: SaoPauloTimeZone,
   }).format(new Date(kickoffUTC));
 }

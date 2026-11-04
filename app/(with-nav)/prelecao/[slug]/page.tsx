@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: PageProps) {
     return {};
   }
 
-  const title = `Preleção: ${prelecao.home ? `Grêmio x ${prelecao.match.opponent}` : `${prelecao.match.opponent} x Grêmio`}`;
-  const description = `Análise do jogo no ${prelecao.stadium}.`;
+  const title = `Match Preview: ${prelecao.home ? `Grêmio x ${prelecao.match.opponent}` : `${prelecao.match.opponent} x Grêmio`}`;
+  const description = `Match analysis at ${prelecao.stadium}.`;
 
   return {
     title,

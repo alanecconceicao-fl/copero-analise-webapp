@@ -10,12 +10,12 @@ Feature: The landing page promotes the app
   Scenario: The carousel has exactly 3 items in the agreed order
     When the page loads
     Then the carousel shows exactly 3 items
-    And the items are, in order: "What is Copero", "Pre-match briefing", and "Copero Journey"
+    And the items are, in order: "What is Copero", "Match Preview", and "Copero Matchday"
 
   Scenario: Only the "What is Copero" item links to a page with more detail
     When the page loads
     Then the "What is Copero" item links to a page that explores the topic in depth
-    And the "Pre-match briefing" and "Copero Journey" items do not have their own pages
+    And the "Match Preview" and "Copero Matchday" items do not have their own pages
 
   Scenario: The "What is Copero" link explores the topic in depth
     When the fan taps the link on the "What is Copero" item

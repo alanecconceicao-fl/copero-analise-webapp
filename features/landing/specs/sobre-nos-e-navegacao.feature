@@ -30,5 +30,5 @@ Feature: About Us and footer navigation
 
   Scenario: About Us introduces Copero and its team
     When the fan taps "About Us" in the footer
-    Then they see a brief explanation of Copero Análise
+    Then they see a brief explanation of Copero Analysis
     And they see who is on the project, with an introduction to each person

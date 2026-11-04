@@ -19,7 +19,7 @@ const sans = Barlow({
 });
 
 const description =
-  "Análise profunda dos jogos do Grêmio, com a linguagem de arquibancada.";
+  "In-depth analysis of Grêmio matches, told in the language of the stands.";
 
 // SEO (#38): metadataBase resolves every relative URL below (canonical, og);
 // the title template brands child pages; OG makes a shared link show
@@ -30,15 +30,15 @@ const description =
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Copero Análise",
-    template: "%s · Copero Análise",
+    default: "Copero Analysis",
+    template: "%s · Copero Analysis",
   },
   description,
   openGraph: {
     type: "website",
-    siteName: "Copero Análise",
-    locale: "pt_BR",
-    title: "Copero Análise",
+    siteName: "Copero Analysis",
+    locale: "en_US",
+    title: "Copero Analysis",
     description,
     images: ["/logo.png"],
   },
@@ -47,7 +47,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${display.variable} ${sans.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body>
         <GoogleCmp />
         {children}

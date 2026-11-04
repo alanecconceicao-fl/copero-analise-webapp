@@ -11,46 +11,46 @@ export function OQueEPage() {
       </header>
       <div className="stripe-divider" />
       <div className="hero-card">
-        <span className="kicker">O que é</span>
-        <h1>Copero Análise</h1>
-        <p>Em breve, no teu bolso: a análise do Grêmio que tava faltando.</p>
+        <span className="kicker">About Copero</span>
+        <h1>Copero Analysis</h1>
+        <p>Coming soon to your pocket: the Grêmio analysis you have been missing.</p>
       </div>
       <div className="page-section the-story">
         <p>
-          O <strong>Copero Análise</strong> é um app de análise do Grêmio:
-          por dentro, dados e leitura técnica de verdade; por fora, contado
-          na conversa que rola de igual pra igual na arquibancada. Sem
-          clickbait, sem chute de mesa-redonda.
+          <strong>Copero Analysis</strong> is a Grêmio analysis app:
+          real data and tactical insight on the inside; on the outside, told
+          in the easygoing language of the stands. No
+          clickbait or pundit guesses.
         </p>
         <p>
-          Toda análise é feita com critérios técnicos reais: transição ofensiva,
-          transição defensiva, movimentação com bola, movimentação sem bola,
-          bola parada, jogo apoiado, pressão ao portador da bola, e etc.
-          Mas isso fica nos bastidores: o jargão não vai pro texto.
-          O que chega pra ti é o jogo explicado, tipo aquela avenida que sobrou
-          na ponta, ou a velocidade da gurizada pelas pontas.
+          Every analysis follows sound technical criteria: attacking transitions,
+          defensive transitions, movement on and off the ball,
+          set pieces, combination play, and pressure on the ball carrier.
+          That work stays behind the scenes; the jargon never makes it into the copy.
+          What you get is a clear explanation of the match, like the open space left
+          out wide or the pace of young players on the wings.
         </p>
       </div>
       <div className="callout">
-        <span className="kicker">A ideia</span>
-        <h2>Cada jogo do Grêmio merece uma análise à altura.</h2>
-        <p>E ela tem que caber no bolso do torcedor.</p>
+        <span className="kicker">The idea</span>
+        <h2>Every Grêmio match deserves analysis to match.</h2>
+        <p>And it should fit in a fan’s pocket.</p>
       </div>
       <div className="page-section the-features">
-        <h2>Os Tipos de Análise</h2>
+        <h2>Analysis formats</h2>
         <ul className="feature-list">
           <li>
-            <h3>Preleção</h3>
+            <h3>Match Preview</h3>
             <p>
-              1–2 dias antes do jogo: como o adversário costuma jogar e os
-              dois pontos por onde a partida tende a se decidir.
+              1–2 days before the match: how the opponent usually plays and the
+              two key areas likely to decide the match.
             </p>
           </li>
           <li>
-            <h3>Jornada do Copero</h3>
+            <h3>Copero Matchday</h3>
             <p>
-              No dia da bola rolar: escalação confirmada, o intervalo com o
-              melhor do 1.º tempo, e a resenha quente do pós-jogo.
+              On match day: the confirmed lineup, a halftime recap of
+              the first half, and a lively post-match recap.
             </p>
           </li>
         </ul>

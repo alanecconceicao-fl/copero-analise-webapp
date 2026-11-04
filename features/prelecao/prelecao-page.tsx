@@ -17,7 +17,7 @@ export function PrelecaoPage({ prelecao }: PrelecaoPageProps) {
   return (
     <main className="page prelecao-page">
       <header className="prelecao-header">
-        <span className="kicker">Preleção</span>
+        <span className="kicker">Match Preview</span>
         <h1>{prelecao.match.opponent}</h1>
         <PrelecaoMeta prelecao={prelecao} />
       </header>
@@ -36,7 +36,7 @@ export function PrelecaoPage({ prelecao }: PrelecaoPageProps) {
           />
           {groups.missingPosition.length > 0 ? (
             <p className="prelecao-missing-position">
-              Sem posição média em campo: {groups.missingPosition.map((player) => player.name).join(", ")}
+              No average position available for: {groups.missingPosition.map((player) => player.name).join(", ")}
             </p>
           ) : null}
           <Incidences section={lineupSection} />
@@ -68,7 +68,7 @@ function Incidences({ section }: { section: PrelecaoSection }) {
   }
   return (
     <details className="prelecao-details">
-      <summary>De onde vem essa leitura</summary>
+      <summary>How we reached this conclusion</summary>
       <ul>
         {section.incidences.map((incidence) => (
           <li key={incidence}>{incidence}</li>
@@ -83,7 +83,7 @@ function PrelecaoMeta({ prelecao }: { prelecao: PublicPrelecao }) {
   return (
     <div className="prelecao-meta-stack">
       <p className="prelecao-competition">
-        {prelecao.match.competition} · {prelecao.match.phase} · Rodada {prelecao.match.round}
+        {prelecao.match.competition} · {prelecao.match.phase} · Round {prelecao.match.round}
       </p>
       <dl className="match-meta prelecao-meta">
       <div>

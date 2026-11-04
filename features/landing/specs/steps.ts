@@ -1,5 +1,5 @@
 // Step definitions for the landing living doc (code in English; the specs —
-// the documentation — stay pt-BR). Each device "Given" opens its own context:
+// the documentation — is in English). Each device "Given" opens its own context:
 // the mobile-only rule is about what the device IS (user agent).
 import { expect, type Page } from "@playwright/test";
 import { createBdd } from "playwright-bdd";
@@ -73,7 +73,7 @@ Then(
   "the page says desktop access is not allowed",
   async ({ world }) => {
     await expect(world.page.getByTestId("apenas-no-celular")).toBeVisible();
-    await expect(world.page.getByText("acesso via desktop não é permitido")).toBeVisible();
+    await expect(world.page.getByText("desktop access is not allowed")).toBeVisible();
   },
 );
 
@@ -90,8 +90,8 @@ Then(
     // author's to change): "What is Copero" -> o-que-e, etc.
     const idByName: Record<string, string> = {
       "What is Copero": "o-que-e",
-      "Pre-match briefing": "prelecao",
-      "Copero Journey": "jornada",
+      "Match Preview": "prelecao",
+      "Copero Matchday": "jornada",
     };
     const items = world.page.getByTestId("carousel-item");
     await expect(items.nth(0)).toHaveAttribute("data-item-id", idByName[first]);
@@ -185,11 +185,11 @@ Then(
 Then("the next match briefing callout appears", async ({ world }) => {
   const card = world.page.getByTestId("next-match-card");
   await expect(card).toBeVisible();
-  await expect(card.getByText("Brasileirão")).toBeVisible();
+  await expect(card.getByText("Brazilian Championship")).toBeVisible();
   await expect(card.getByTestId("next-match-home-team")).toHaveText("Grêmio");
   await expect(card.getByTestId("next-match-away-team")).toHaveText("Bahia");
-  await expect(card.getByText("08/08 · 21:30 · Fase única · Rodada 15")).toBeVisible();
-  await expect(card.getByRole("link", { name: "Ler a Preleção" })).toHaveAttribute(
+  await expect(card.getByText("Aug 8 · 9:30 PM · Single Round · Round 15")).toBeVisible();
+  await expect(card.getByRole("link", { name: "Read the match preview" })).toHaveAttribute(
     "href",
     "/prelecao/2026-brasileirao-fase-unica-15-bahia",
   );
@@ -235,15 +235,13 @@ Then(
   "the footer bar has shortcuts for {string} and {string}",
   async ({ world }, first: string, second: string) => {
     const nav = world.page.getByTestId("footer-nav");
-    const displayLabel = (label: string) => ({ Home: "início", "About Us": "sobre nós" }[label] ?? label);
-    await expect(nav.getByText(displayLabel(first))).toBeVisible();
-    await expect(nav.getByText(displayLabel(second))).toBeVisible();
+    await expect(nav.getByText(first)).toBeVisible();
+    await expect(nav.getByText(second)).toBeVisible();
   },
 );
 
 When("the fan taps {string} in the footer", async ({ world }, label: string) => {
-  const displayLabel = ({ Home: "início", "About Us": "sobre nós" } as Record<string, string>)[label] ?? label;
-  await world.page.getByTestId("footer-nav").getByText(displayLabel).click();
+  await world.page.getByTestId("footer-nav").getByText(label).click();
 });
 
 Then("they reach the About Us page", async ({ world }) => {
@@ -254,8 +252,8 @@ Then("they return to the landing page", async ({ world }) => {
   await expect(world.page.getByTestId("carousel")).toBeVisible();
 });
 
-Then("they see a brief explanation of Copero Análise", async ({ world }) => {
-  await expect(world.page.getByTestId("sobre-nos")).toContainText("Copero Análise");
+Then("they see a brief explanation of Copero Analysis", async ({ world }) => {
+  await expect(world.page.getByTestId("sobre-nos")).toContainText("Copero Analysis");
 });
 
 Then(
@@ -296,7 +294,7 @@ Then(
   async ({ world }) => {
     await expect(world.page.locator('meta[property="og:title"]')).toHaveAttribute(
       "content",
-      /Copero Análise/,
+      /Copero Analysis/,
     );
     await expect(
       world.page.locator('meta[property="og:description"]'),

@@ -3,86 +3,86 @@ import { expect, test } from "vitest";
 import { PrelecaoPage } from "./prelecao-page";
 import type { PublicPrelecao } from "./prelecao-api";
 
-test("mostra exatamente as três seções editoriais na ordem", () => {
+test("shows exactly the three editorial sections in order", () => {
   render(<PrelecaoPage prelecao={prelecao()} />);
 
   expect(Array.from(document.querySelectorAll(".prelecao-section h2")).map((heading) => heading.textContent)).toEqual([
-    "Abre o olho, Grêmio!",
-    "O caminho das pedras",
+    "Watch out, Grêmio!",
+    "The path to victory",
   ]);
-  expect(screen.getByRole("heading", { name: "Provável escalação" })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: "Probable lineup" })).toBeInTheDocument();
 });
 
-test("bloco de escalação aparece só quando há seção likely-lineup", () => {
+test("lineup block appears only when there is a likely-lineup section", () => {
   const { rerender } = render(<PrelecaoPage prelecao={prelecao({ withLineupSection: true })} />);
-  expect(screen.getByRole("heading", { name: "Provável escalação" })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: "Probable lineup" })).toBeInTheDocument();
 
   rerender(<PrelecaoPage prelecao={prelecao({ withLineupSection: false })} />);
-  expect(screen.queryByRole("heading", { name: "Provável escalação" })).not.toBeInTheDocument();
+  expect(screen.queryByRole("heading", { name: "Probable lineup" })).not.toBeInTheDocument();
 });
 
-test("narração quebra parágrafos sem injetar HTML", () => {
-  render(<PrelecaoPage prelecao={prelecao({ body: "Primeiro.\n\n<strong>Segundo.</strong>" })} />);
+test("narrative splits paragraphs without injecting HTML", () => {
+  render(<PrelecaoPage prelecao={prelecao({ body: "First.\n\n<strong>Segundo.</strong>" })} />);
 
-  expect(screen.getByText("Primeiro.")).toBeInTheDocument();
+  expect(screen.getByText("First.")).toBeInTheDocument();
   expect(screen.getByText("<strong>Segundo.</strong>")).toBeInTheDocument();
   expect(document.querySelector("strong")).toBeNull();
 });
 
-test("header identifica adversário, competição, local e horário", () => {
+test("header identifies the opponent, competition, venue, and kickoff time", () => {
   render(<PrelecaoPage prelecao={prelecao()} />);
 
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Bahia");
   expect(screen.queryByText("Grêmio x Bahia")).not.toBeInTheDocument();
-  expect(screen.getByText("Brasileirão · Fase única · Rodada 15")).toBeInTheDocument();
-  expect(screen.getByText("Arena do Grêmio")).toBeInTheDocument();
-  expect(screen.getByText("sábado, 8 de agosto, 21h30")).toBeInTheDocument();
+  expect(screen.getByText("Brazilian Championship · Single Round · Round 15")).toBeInTheDocument();
+  expect(screen.getByText("Grêmio Arena")).toBeInTheDocument();
+  expect(screen.getByText("Saturday, August 8 at 9:30 PM")).toBeInTheDocument();
 });
 
-test("título continua sendo o adversário fora de casa", () => {
+test("opponent remains the heading when Grêmio is away", () => {
   render(<PrelecaoPage prelecao={prelecao({ home: false })} />);
 
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Bahia");
   expect(screen.queryByText("Bahia x Grêmio")).not.toBeInTheDocument();
 });
 
-test("header degrada sem cidade do adversário", () => {
+test("header falls back when the venue city is missing", () => {
   render(<PrelecaoPage prelecao={prelecao({ enriched: false })} />);
 
   expect(screen.queryByText("Porto Alegre, Brasil")).not.toBeInTheDocument();
 });
 
-test("campo é a representação dos onze titulares", () => {
+test("pitch represents the eleven starters", () => {
   render(<PrelecaoPage prelecao={prelecao()} />);
 
-  const pitch = screen.getByRole("img", { name: "Campo vertical com titulares prováveis do Bahia" });
+  const pitch = screen.getByRole("img", { name: "Vertical pitch showing Bahia’s probable starters" });
   expect(pitch.querySelectorAll(".pitch-player")).toHaveLength(11);
-  expect(screen.queryByRole("list", { name: "Titulares prováveis" })).not.toBeInTheDocument();
+  expect(screen.queryByRole("list", { name: "Probable starters" })).not.toBeInTheDocument();
 });
 
-test("sinaliza quem não tem posição média", () => {
+test("indicates players without an average position", () => {
   render(<PrelecaoPage prelecao={prelecao({ missingPosition: true })} />);
 
-  expect(screen.getByText("Sem posição média em campo: Kannemann")).toBeInTheDocument();
+  expect(screen.getByText("No average position available for: Kannemann")).toBeInTheDocument();
 });
 
-test("mostra incidências de sustentação em collapse", () => {
+test("shows supporting evidence in a collapsible section", () => {
   render(<PrelecaoPage prelecao={prelecao()} />);
 
-  expect(screen.getAllByText("De onde vem essa leitura")).toHaveLength(3);
-  expect(screen.getByText("cuidado: recuperações altas no lado direito")).toBeInTheDocument();
+  expect(screen.getAllByText("How we reached this conclusion")).toHaveLength(3);
+  expect(screen.getByText("caution: high regains on the right")).toBeInTheDocument();
 });
 
-test("não mostra collapse de incidências quando a seção não traz sustentação pública", () => {
+test("does not show the evidence section when no public support is provided", () => {
   render(<PrelecaoPage prelecao={prelecao({ withoutIncidences: true })} />);
 
-  expect(screen.queryByText("De onde vem essa leitura")).not.toBeInTheDocument();
+  expect(screen.queryByText("How we reached this conclusion")).not.toBeInTheDocument();
 });
 
-test("não mostra legenda de posição ausente quando todos têm coordenada", () => {
+test("does not show the missing-position note when all players have coordinates", () => {
   render(<PrelecaoPage prelecao={prelecao()} />);
 
-  expect(screen.queryByText(/Sem posição média em campo:/)).not.toBeInTheDocument();
+  expect(screen.queryByText(/No average position available for:/)).not.toBeInTheDocument();
 });
 
 function prelecao(options: {
@@ -97,30 +97,30 @@ function prelecao(options: {
   const sections = [
     {
       id: "watch-out" as const,
-      title: "Abre o olho, Grêmio!",
-      body: options.body ?? "Segundo bloco.",
-      incidences: options.withoutIncidences ? undefined : ["cuidado: recuperações altas no lado direito"],
+      title: "Watch out, Grêmio!",
+      body: options.body ?? "Second section.",
+      incidences: options.withoutIncidences ? undefined : ["caution: high regains on the right"],
     },
     {
       id: "path" as const,
-      title: "O caminho das pedras",
-      body: "Terceiro bloco.",
-      incidences: options.withoutIncidences ? [] : ["caminho: espaço nas costas do lateral"],
+      title: "The path to victory",
+      body: "Third section.",
+      incidences: options.withoutIncidences ? [] : ["path: space behind the fullback"],
     },
   ];
 
   return {
     slug: "2026-brasileirao-fase-unica-15-bahia",
-    match: { season: "2026", competition: "Brasileirão", phase: "Fase única", round: "15", opponent: "Bahia" },
+    match: { season: "2026", competition: "Brazilian Championship", phase: "Single Round", round: "15", opponent: "Bahia" },
     opponentCrestUrl: enriched ? "https://img.example/bahia.svg" : undefined,
     kickoffUtc: "2026-08-09T00:30:00Z",
-    stadium: "Arena do Grêmio",
+    stadium: "Grêmio Arena",
     stadiumCity: enriched ? "Porto Alegre" : undefined,
-    stadiumCountry: enriched ? "Brasil" : undefined,
+    stadiumCountry: enriched ? "Brazil" : undefined,
     home: options.home ?? true,
     deliveredAt: "2026-08-08T12:00:00Z",
     sections: options.withLineupSection === false ? sections : [
-      { id: "likely-lineup", title: "Provável escalação", body: "A base provável.", incidences: options.withoutIncidences ? undefined : ["escalação: base repetida nos últimos jogos"] },
+      { id: "likely-lineup", title: "Probable lineup", body: "The probable lineup.", incidences: options.withoutIncidences ? undefined : ["lineup: same core lineup in recent matches"] },
       ...sections,
     ],
     lineup: {
@@ -149,7 +149,7 @@ function player(name: string, number: number | null, x: number | null, y: number
   return {
     name,
     number,
-    position: "Titular",
+    position: "Starter",
     x,
     y,
   };

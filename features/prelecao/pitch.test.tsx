@@ -3,15 +3,15 @@ import { expect, test } from "vitest";
 import { Pitch } from "./pitch";
 import type { PrelecaoLineupPlayer } from "./prelecao-api";
 
-test("campo tem papel de imagem e mostra só jogadores posicionáveis", () => {
-  render(<Pitch players={[player("Atacante", 9, 90, 50), player("Sem posição", 4, null, 40)]} primaryColor="#5aa7ff" secondaryColor="#111827" opponent="Bahia" />);
+test("pitch has image semantics and shows only players with positions", () => {
+  render(<Pitch players={[player("Striker", 9, 90, 50), player("Unpositioned player", 4, null, 40)]} primaryColor="#5aa7ff" secondaryColor="#111827" opponent="Bahia" />);
 
-  const pitch = screen.getByRole("img", { name: "Campo vertical com titulares prováveis do Bahia" });
-  expect(within(pitch).getByText("Atacante")).toBeInTheDocument();
-  expect(within(pitch).queryByText("Sem posição")).not.toBeInTheDocument();
+  const pitch = screen.getByRole("img", { name: "Vertical pitch showing Bahia’s probable starters" });
+  expect(within(pitch).getByText("Striker")).toBeInTheDocument();
+  expect(within(pitch).queryByText("Unpositioned player")).not.toBeInTheDocument();
 });
 
-test("token usa cores de uniforme e preserva nome fora do token", () => {
+test("token uses kit colors and displays the player name separately", () => {
   render(<Pitch players={[player("Cristaldo", 10, 68, 48)]} primaryColor="#5aa7ff" secondaryColor="#111827" opponent="Bahia" />);
 
   const token = screen.getByTestId("pitch-token-Cristaldo");
@@ -20,16 +20,16 @@ test("token usa cores de uniforme e preserva nome fora do token", () => {
   expect(screen.getByText("Cristaldo")).toHaveClass("pitch-player-name");
 });
 
-test("jogador sem número fica sem dígito no token", () => {
+test("player without a number has no digit in the token", () => {
   render(<Pitch players={[player("Dodi", null, 50, 50)]} primaryColor="#5aa7ff" secondaryColor="#111827" opponent="Bahia" />);
 
   expect(screen.getByTestId("pitch-token-Dodi")).toHaveTextContent("");
 });
 
-test("posição CSS vem da conversão vertical", () => {
-  render(<Pitch players={[player("Centroavante", 9, 100, 0)]} primaryColor="#5aa7ff" secondaryColor="#111827" opponent="Bahia" />);
+test("CSS position comes from the vertical coordinate mapping", () => {
+  render(<Pitch players={[player("Center forward", 9, 100, 0)]} primaryColor="#5aa7ff" secondaryColor="#111827" opponent="Bahia" />);
 
-  expect(screen.getByTestId("pitch-player-Centroavante")).toHaveStyle({ top: "6%", left: "91%" });
+  expect(screen.getByTestId("pitch-player-Center forward")).toHaveStyle({ top: "6%", left: "91%" });
 });
 
 function player(name: string, number: number | null, x: number | null, y: number | null): PrelecaoLineupPlayer {

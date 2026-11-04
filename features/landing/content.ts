@@ -1,4 +1,4 @@
-// Fixed copy for v0 (AC 10) — user-facing text stays pt-BR.
+// Fixed copy for v0 (AC 10) — user-facing text is in English.
 // DRAFT written against _docs/guia-voz.md; the author reviews/edits before
 // release (HITL — content is his gate).
 export type CarouselItem = {
@@ -12,29 +12,29 @@ export type CarouselItem = {
 export const carouselItems: CarouselItem[] = [
   {
     id: "o-que-e",
-    kicker: "Comece por aqui",
-    title: "O que é o Copero Análise",
-    text: "Análise de qualidade com aquela conversa que só acontece na arquibancada.",
-    link: { href: "/o-que-e", label: "Saiba mais" },
+    kicker: "Start here",
+    title: "About Copero Analysis",
+    text: "Quality analysis with the kind of conversation you only hear in the stands.",
+    link: { href: "/o-que-e", label: "Learn more" },
   },
   {
     id: "prelecao",
-    kicker: "Pré-jogo",
-    title: "Preleção",
-    text: "Como o adversário joga, onde mora o perigo e onde a peleia se decide.",
+    kicker: "Before the match",
+    title: "Match Preview",
+    text: "How the opponent plays, where the danger lies, and where the match will be decided.",
   },
   {
     id: "jornada",
-    kicker: "Dia de jogo",
-    title: "Jornada do Copero",
-    text: "Escalação confirmada, o gremiovalo com o melhor do primeiro tempo e o pós-jogo com comentários do que rolou.",
+    kicker: "Match day",
+    title: "Copero Matchday",
+    text: "Confirmed lineup, the best of the first half at halftime, and a post-match recap of what happened.",
   },
 ];
 
 export const sellingText =
-  "Bah, se liga: a tua análise do Grêmio tá prestes a ficar diferente. " +
-  "Preleção antes do jogo, jornada no dia da bola rolar, resenha quente na " +
-  "saída do vestiário, tudo no teu bolso, na voz de quem tá contigo na " +
-  "arquibancada. Fica ligado: o lançamento tá chegando.";
+  "Get ready: your Grêmio analysis is about to change. " +
+  "Match Preview before kickoff, matchday coverage as the action unfolds, and a lively post-match recap, " +
+  "all in your pocket, told by someone right there with you in the " +
+  "stands. Stay tuned: launch is coming soon.";
 
 export const autoAdvanceMs = 5000;

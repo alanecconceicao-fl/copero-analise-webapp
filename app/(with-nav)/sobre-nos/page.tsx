@@ -1,9 +1,9 @@
 import { SobreNosPage } from "../../../features/sobre-nos/sobre-nos-page";
 
 export const metadata = {
-  title: "Sobre nós",
+  title: "About Us",
   description:
-    "Quem faz o Copero Análise e por que a análise do Grêmio aqui é profunda sem ser complicada.",
+    "Meet the people behind Copero Analysis and learn why our Grêmio analysis is in-depth without being complicated.",
   alternates: { canonical: "/sobre-nos" },
 };
 

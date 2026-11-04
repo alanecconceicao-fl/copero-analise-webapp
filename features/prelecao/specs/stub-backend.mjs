@@ -24,29 +24,29 @@ const samplePrelecao = {
   sections: [
     {
       id: "likely-lineup",
-      title: "Provável escalação",
-      body: "O Adversary FC deve repetir a base que dá amplitude pelos lados e usa dois volantes protegendo a entrada da área.",
+      title: "Probable lineup",
+      body: "Adversary FC are likely to keep the same core lineup, stretching play out wide and using two holding midfielders to protect the edge of the box.",
       incidences: [
-        "escalação: base repetida nas últimas partidas da amostra",
-        "em posse: laterais dão amplitude e empurram a linha adversária",
+        "lineup: same core lineup in recent sample matches",
+        "in possession: fullbacks provide width and push back the opposing line",
       ],
     },
     {
       id: "watch-out",
-      title: "Abre o olho, Grêmio!",
-      body: "O Adversary FC costuma sair curto e acelerar quando encontra o meia entrelinhas. Se o Tricolor morder alto sem cobertura, a bola nas costas do lateral vira o atalho deles.",
+      title: "Watch out, Grêmio!",
+      body: "Adversary FC often build short and accelerate when they find their midfielder between the lines. If Grêmio press high without cover, a pass in behind the fullback becomes their shortcut.",
       incidences: [
-        "transição ofensiva: dois gols após recuperação alta",
-        "em posse: média de passes-chave acima da amostra recente",
+        "attacking transition: two goals after a high regain",
+        "in possession: key passes per match above the recent sample average",
       ],
     },
     {
       id: "path",
-      title: "O caminho das pedras",
-      body: "O jogo tende a passar pela segunda bola depois do cruzamento. Ganhar esse rebote é o que separa volume de chance clara.\n\nSe Player 10 receber de frente, o Grêmio encontra chute e último passe antes do bloco visitante se recompor.",
+      title: "The path to victory",
+      body: "The match may be decided by the second ball after a cross. Winning that rebound is what turns pressure into a clear chance.\n\nIf Player 10 receives facing forward, Grêmio can find a shot or a final pass before the visitors’ defensive block resets.",
       incidences: [
-        "sem posse: sofreu 12,4 finalizações por jogo",
-        "bola parada: cedeu seis finalizações em 24 escanteios",
+        "out of possession: allowed 12.4 shots per match",
+        "set pieces: conceded six shots from 24 corners",
       ],
     },
   ],
@@ -97,15 +97,15 @@ const server = http.createServer(async (request, response) => {
 
   if (request.method === "GET" && url.pathname === "/api/matches/team-talk/public") {
     if (!prelecaoPublicaEnabled && !hasPrelecaoOverride(request)) {
-      return json(response, 404, { error: "não encontrada" });
+      return json(response, 404, { error: "not found" });
     }
     const talk = talks.get(url.searchParams.get("slug") ?? "");
-    return talk ? json(response, 200, talk) : json(response, 404, { error: "não encontrada" });
+    return talk ? json(response, 200, talk) : json(response, 404, { error: "not found" });
   }
 
   if (request.method === "GET" && url.pathname === "/api/matches/next/public") {
     if (!prelecaoPublicaEnabled && !hasPrelecaoOverride(request)) {
-      return json(response, 404, { error: "não encontrada" });
+      return json(response, 404, { error: "not found" });
     }
     return json(response, 200, {
       match: samplePrelecao.match,
@@ -119,7 +119,7 @@ const server = http.createServer(async (request, response) => {
     });
   }
 
-  return json(response, 404, { error: "rota não encontrada" });
+  return json(response, 404, { error: "route not found" });
 });
 
 server.listen(port, "127.0.0.1", () => {

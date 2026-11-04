@@ -1,9 +1,9 @@
 import { OQueEPage } from "../../../features/o-que-e/o-que-e-page";
 
 export const metadata = {
-  title: "O que é",
+  title: "About Copero",
   description:
-    "O Copero Análise explicado: leitura profunda do jogo do Grêmio, contada na linguagem da arquibancada.",
+    "Copero Analysis explained: in-depth Grêmio match analysis, told in the language of the stands.",
   alternates: { canonical: "/o-que-e" },
 };
 

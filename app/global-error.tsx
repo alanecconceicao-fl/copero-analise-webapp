@@ -12,9 +12,9 @@ export default function GlobalError({ error }: { error: Error & { digest?: strin
   }, [error]);
 
   return (
-    <html lang="pt-BR">
+    <html lang="en">
       <body>
-        <p>Algo deu errado. Já fomos notificados.</p>
+        <p>Something went wrong. We have been notified.</p>
       </body>
     </html>
   );
